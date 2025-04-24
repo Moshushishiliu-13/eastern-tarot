@@ -1,0 +1,33 @@
+{
+  "name": "tarot-app",
+  "version": "1.0.0",
+  "description": "塔罗牌测试网站",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [
+    "tarot",
+    "divination",
+    "fortune-telling"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "framer-motion": "^12.8.0",
+    "next": "^13.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.4",
+    "typescript": "^5.0.4"
+  }
+}
