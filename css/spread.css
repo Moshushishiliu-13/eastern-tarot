@@ -1,0 +1,251 @@
+﻿/* css/spread.css */
+.spread-selection {
+  padding: 60px 0;
+  background-color: white;
+}
+
+.spread-options {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.spread-option {
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 25px;
+  width: 280px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.spread-option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.spread-option.selected {
+  border: 2px solid var(--primary-color);
+}
+
+.spread-preview {
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.mini-card {
+  width: 40px;
+  height: 70px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 凯尔特十字布局预览 */
+.celtic-preview {
+  position: relative;
+  height: 150px;
+}
+
+.celtic-preview .mini-card {
+  position: absolute;
+  width: 30px;
+  height: 50px;
+}
+
+.cc-1 { top: 50px; left: 110px; }
+.cc-2 { top: 50px; left: 145px; transform: rotate(90deg); }
+.cc-3 { top: 105px; left: 125px; }
+.cc-4 { top: 0px; left: 125px; }
+.cc-5 { top: 50px; left: 65px; }
+.cc-6 { top: 50px; left: 185px; }
+.cc-7 { top: 10px; left: 210px; }
+.cc-8 { top: 40px; left: 210px; }
+.cc-9 { top: 70px; left: 210px; }
+.cc-10 { top: 100px; left: 210px; }
+
+.spread-option h3 {
+  margin-bottom: 10px;
+  color: var(--dark-color);
+}
+
+.spread-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.spread-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.spread-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.spread-reading {
+  padding: 60px 0;
+  background-color: var(--light-color);
+  display: none;
+}
+
+/* 三卡牌阵布局 */
+.three-card-spread {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.spread-card {
+  width: 150px;
+  height: 260px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.card-label {
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-weight: bold;
+  color: var(--dark-color);
+}
+
+/* 凯尔特十字牌阵布局 */
+.celtic-cross-spread {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, auto);
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.celtic-card {
+  width: 120px;
+  height: 208px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  justify-self: center;
+}
+
+.card-1 { grid-area: 2 / 2 / 3 / 3; }
+.card-2 { grid-area: 2 / 2 / 3 / 3; transform: rotate(90deg); z-index: 2; }
+.card-3 { grid-area: 3 / 2 / 4 / 3; }
+.card-4 { grid-area: 1 / 2 / 2 / 3; }
+.card-5 { grid-area: 2 / 1 / 3 / 2; }
+.card-6 { grid-area: 2 / 3 / 3 / 4; }
+.card-7 { grid-area: 1 / 4 / 2 / 5; }
+.card-8 { grid-area: 2 / 4 / 3 / 5; }
+.card-9 { grid-area: 3 / 4 / 4 / 5; }
+.card-10 { grid-area: 4 / 4 / 5 / 5; }
+
+.spread-interpretation {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.spread-interpretation h2 {
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.card-interpretation {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.card-interpretation:last-child {
+  border-bottom: none;
+}
+
+.card-interpretation h3 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  color: var(--dark-color);
+}
+
+.card-interpretation h3 .position {
+  color: #666;
+  font-style: italic;
+  margin-left: 10px;
+  font-weight: normal;
+  font-size: 0.9rem;
+}
+
+.card-interpretation p {
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.overall-meaning {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid #eee;
+}
+
+.overall-meaning h3 {
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .spread-options {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .three-card-spread {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .spread-card {
+    margin-bottom: 40px;
+  }
+  
+  .celtic-cross-spread {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .celtic-card {
+    margin-bottom: 40px;
+  }
+}
