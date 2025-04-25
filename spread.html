@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>牌阵解读 - 神秘塔罗</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/spread.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">神秘塔罗</a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="draw.html">单牌抽取</a></li>
+                    <li><a href="spread.html" class="active">牌阵解读</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>牌阵解读</h1>
+                <p>选择一种牌阵来获得更深入的指引</p>
+            </div>
+        </section>
+
+        <section class="spread-selection">
+            <div class="container">
+                <div class="spread-options">
+                    <div class="spread-option" data-spread="three-card">
+                        <div class="spread-preview">
+                            <div class="mini-card"></div>
+                            <div class="mini-card"></div>
+                            <div class="mini-card"></div>
+                        </div>
+                        <h3>三卡牌阵</h3>
+                        <p>过去、现在与未来的简单布局</p>
+                    </div>
+                    
+                    <div class="spread-option" data-spread="celtic-cross">
+                        <div class="spread-preview celtic-preview">
+                            <div class="mini-card cc-1"></div>
+                            <div class="mini-card cc-2"></div>
+                            <div class="mini-card cc-3"></div>
+                            <div class="mini-card cc-4"></div>
+                            <div class="mini-card cc-5"></div>
+                            <div class="mini-card cc-6"></div>
+                            <div class="mini-card cc-7"></div>
+                            <div class="mini-card cc-8"></div>
+                            <div class="mini-card cc-9"></div>
+                            <div class="mini-card cc-10"></div>
+                        </div>
+                        <h3>凯尔特十字</h3>
+                        <p>详细分析复杂情况的全面解读</p>
+                    </div>
+                </div>
+
+                <div class="spread-form">
+                    <label for="spread-question">输入您的问题:</label>
+                    <input type="text" id="spread-question" placeholder="例如：我未来的爱情走向如何？">
+                    <button id="draw-spread" class="btn btn-primary">开始抽牌</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="spread-reading" id="spread-reading">
+            <!-- 牌阵解读结果将在这里显示 -->
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>神秘塔罗</h3>
+                    <p>您的命运指南</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="draw.html">单牌抽取</a></li>
+                        <li><a href="spread.html">牌阵解读</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>联系我们</h4>
+                    <p>邮箱: contact@eastern-tarot.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 神秘塔罗. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cards.js"></script>
+    <script src="js/spread.js"></script>
+</body>
+</html>
