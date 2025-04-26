@@ -9,6 +9,16 @@
     <!-- SEO相关元数据 -->
     <meta name="description" content="免费的在线塔罗牌占卜网站，提供单牌抽取和牌阵解读服务">
     <meta name="keywords" content="塔罗牌,占卜,神秘塔罗,免费塔罗,牌阵解读">
+    <!-- 百度统计代码 -->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?c74539f43038aa9227519e7b03e462d1";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
 </head>
 <body>
     <header class="header">
@@ -38,6 +48,9 @@
                 <div class="hero-buttons">
                     <a href="draw.html" class="btn btn-primary">开始单牌抽取</a>
                     <a href="spread.html" class="btn btn-secondary">进行牌阵解读</a>
+                    <button id="favoriteBtn" class="btn btn-favorite" title="使用浏览器快捷键收藏本站">
+                        收藏本站
+                    </button>
                 </div>
             </div>
         </section>
@@ -114,6 +127,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- 页面底部添加的悬浮收藏提示 -->
+    <div id="favTip" class="favorite-tip" style="display: none;">
+        <p>💡 提示：按下<span id="keyCommand">Ctrl+D</span>将本站添加到收藏夹</p>
+        <button id="closeTip">✕</button>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
