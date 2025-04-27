@@ -1,14 +1,32 @@
 ﻿// js/spread.js
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('spread.js已加载');
+    
     const spreadOptions = document.querySelectorAll('.spread-option');
     const drawSpreadBtn = document.getElementById('draw-spread');
     const spreadReading = document.getElementById('spread-reading');
     
     let selectedSpread = null;
     
+    // 处理URL锚点
+    const hash = window.location.hash.substring(1);
+    if (hash) {
+        console.log('检测到URL锚点:', hash);
+        spreadOptions.forEach(option => {
+            if (option.dataset.spread === hash) {
+                console.log('根据锚点选中牌阵:', hash);
+                setTimeout(() => {
+                    option.click();
+                    option.scrollIntoView({behavior: 'smooth'});
+                }, 300);
+            }
+        });
+    }
+    
     // 选择牌阵类型
     spreadOptions.forEach(option => {
         option.addEventListener('click', function() {
+            console.log('选择牌阵:', this.dataset.spread);
             spreadOptions.forEach(opt => opt.classList.remove('selected'));
             this.classList.add('selected');
             selectedSpread = this.dataset.spread;
@@ -16,28 +34,57 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // 开始牌阵解读
-    drawSpreadBtn.addEventListener('click', function() {
-        if (!selectedSpread) {
-            alert('请先选择一种牌阵类型');
-            return;
+    if (drawSpreadBtn) {
+        drawSpreadBtn.addEventListener('click', function() {
+            console.log('点击抽牌按钮, 选中的牌阵:', selectedSpread);
+            
+            if (!selectedSpread) {
+                alert('请先选择一种牌阵类型');
+                return;
+            }
+            
+            const question = document.getElementById('spread-question').value || '未提供具体问题';
+            console.log('问题:', question);
+            
+            try {
+                // 洗牌
+                const shuffledCards = shuffleArray([...tarotCards]);
+                console.log('洗牌完成');
+                
+                // 根据选择的牌阵类型展示不同的结果
+                if (selectedSpread === 'three-card') {
+                    console.log('显示三卡牌阵');
+                    displayThreeCardSpread(shuffledCards.slice(0, 3), question);
+                } else if (selectedSpread === 'five-card') {
+                    console.log('显示万能二选一牌阵');
+                    displayFiveCardSpread(shuffledCards.slice(0, 5), question);
+                } else if (selectedSpread === 'celtic-cross') {
+                    console.log('显示凯尔特十字牌阵');
+                    displayCelticCross(shuffledCards.slice(0, 10), question);
+                }
+                
+                // 显示结果区域并滚动到此处
+                spreadReading.style.display = 'block';
+                spreadReading.scrollIntoView({ behavior: 'smooth' });
+            } catch (error) {
+                console.error('抽牌过程中发生错误:', error);
+                alert('抽牌过程中发生错误: ' + error.message);
+            }
+        });
+    } else {
+        console.error('未找到抽牌按钮');
+    }
+    
+    // 洗牌函数
+    function shuffleArray(array) {
+        console.log('开始洗牌');
+        const arrayCopy = [...array];
+        for (let i = arrayCopy.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arrayCopy[i], arrayCopy[j]] = [arrayCopy[j], arrayCopy[i]];
         }
-        
-        const question = document.getElementById('spread-question').value || '未提供具体问题';
-        
-        // 洗牌
-        const shuffledCards = shuffleArray([...tarotCards]);
-        
-        // 根据选择的牌阵类型展示不同的结果
-        if (selectedSpread === 'three-card') {
-            displayThreeCardSpread(shuffledCards.slice(0, 3), question);
-        } else if (selectedSpread === 'celtic-cross') {
-            displayCelticCross(shuffledCards.slice(0, 10), question);
-        }
-        
-        // 显示结果区域并滚动到此处
-        spreadReading.style.display = 'block';
-        spreadReading.scrollIntoView({ behavior: 'smooth' });
-    });
+        return arrayCopy;
+    }
     
     // 显示三卡牌阵
     function displayThreeCardSpread(cards, question) {
@@ -254,12 +301,138 @@ document.addEventListener('DOMContentLoaded', function() {
         return meaning;
     }
     
-    // Fisher-Yates 洗牌算法
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
+    // 完整的五张牌阵显示函数
+    function displayFiveCardSpread(cards, question) {
+        console.log('执行displayFiveCardSpread函数');
+        
+        // 修改位置名称，使其与二选一V字型布局一致
+        const positions = ['现在', '选择A的发展', '选择B的发展', '选择A的影响', '选择B的影响'];
+        const meanings = [
+            '这张牌代表您当前所处的情况和决策点。',
+            '这张牌显示如果选择选项A，情况将如何发展。',
+            '这张牌显示如果选择选项B，情况将如何发展。',
+            '这张牌展示选择A可能带来的长期影响或结果。',
+            '这张牌展示选择B可能带来的长期影响或结果。'
+        ];
+        
+        // 为每张牌随机分配正逆位
+        const cardPositions = cards.map(() => Math.random() > 0.6 ? '逆位' : '正位');
+        
+        // 提取问题中可能的选项文本
+        let optionA = "选项A";
+        let optionB = "选项B";
+        
+        // 尝试从问题中提取选项文本
+        if (question.includes("是选") && question.includes("还是")) {
+            const parts = question.split(/是选|还是/);
+            if (parts.length >= 3) {
+                optionA = parts[1].trim();
+                optionB = parts[2].split('?')[0].trim();
+            }
         }
-        return array;
+        
+        console.log('牌阵选项:', optionA, optionB);
+        
+        let spreadHTML = `
+            <div class="container">
+                <h2>万能二选一牌阵：${question}</h2>
+                <p class="spread-description">V字型决策牌阵：底部为当前情况，左侧为"${optionA}"的发展和影响，右侧为"${optionB}"的发展和影响。</p>
+                
+                <div class="five-card-spread">
+        `;
+        
+        // 添加牌的视觉展示
+        const positionClasses = ['five-current', 'five-option-a', 'five-option-b', 'five-option-a-impact', 'five-option-b-impact'];
+        cards.forEach((card, index) => {
+            let labelText = '';
+            if (index === 1) labelText = `<div class="option-label">${optionA}</div>`;
+            if (index === 2) labelText = `<div class="option-label">${optionB}</div>`;
+            if (index === 3) labelText = `<div class="option-label">${optionA}的影响</div>`;
+            if (index === 4) labelText = `<div class="option-label">${optionB}的影响</div>`;
+            
+            spreadHTML += `
+                <div class="five-card ${positionClasses[index]}" style="background-image: url('${card.image}'); 
+                    ${cardPositions[index] === '逆位' ? 'transform: rotate(180deg);' : ''}">
+                    ${labelText}
+                    <div class="card-label">${positions[index]}</div>
+                </div>
+            `;
+        });
+        
+        spreadHTML += `
+                </div>
+                
+                <div class="spread-interpretation">
+        `;
+        
+        // 添加每张牌的解读
+        cards.forEach((card, index) => {
+            const positionText = cardPositions[index];
+            const interpretation = positionText === '正位' ? card.upright : card.reversed;
+            
+            spreadHTML += `
+                <div class="card-interpretation">
+                    <h3>${card.name} <span class="position">(${positions[index]} - ${positionText})</span></h3>
+                    <p><strong>关键词：</strong> ${interpretation.keywords}</p>
+                    <p><strong>牌意：</strong> ${interpretation.description}</p>
+                    <p><strong>位置意义：</strong> ${meanings[index]}</p>
+                </div>
+            `;
+        });
+        
+        // 添加整体解读部分
+        spreadHTML += `
+                <div class="overall-meaning">
+                    <h3>整体解读</h3>
+                    <p>
+                        您正在考虑"${optionA}"和"${optionB}"两个选择。
+                        根据牌面显示，如果选择"${optionA}"，发展趋势将如${cards[1].name}所示，
+                        而选择"${optionB}"则会如${cards[2].name}所指引。
+                        
+                        从长远来看，您需要考虑这两个选择各自的影响：
+                        "${optionA}"可能带来${cards[3].name}的能量，
+                        而"${optionB}"则可能导向${cards[4].name}的结果。
+                        
+                        最终，您当前所处的${cards[0].name}状态提示您，
+                        在做决定时需要权衡这些因素并倾听内心的声音。
+                    </p>
+                </div>
+            </div>
+        </div>
+        `;
+        
+        console.log('生成HTML完成');
+        spreadReading.innerHTML = spreadHTML;
+        console.log('显示结果完成');
+    }
+    
+    // 保存解读结果到localStorage
+    function saveReadingToHistory(question, spreadType, cards, positions) {
+        // 获取现有历史记录
+        let history = JSON.parse(localStorage.getItem('tarot-reading-history') || '[]');
+        
+        // 添加新的解读记录
+        const newReading = {
+            id: Date.now(), // 使用时间戳作为唯一ID
+            date: new Date().toISOString(),
+            question: question,
+            spreadType: spreadType,
+            cards: cards.map((card, index) => ({
+                name: card.name,
+                position: spreadType === 'five-card' ? ['现状', '选择A的发展', '选择B的发展', '选择A的影响', '选择B的影响'][index] : '',
+                orientation: positions[index]
+            }))
+        };
+        
+        // 将新记录添加到历史
+        history.unshift(newReading); // 添加到最前面
+        
+        // 如果历史记录过多，只保留最近的20条
+        if (history.length > 20) {
+            history = history.slice(0, 20);
+        }
+        
+        // 保存更新后的历史记录
+        localStorage.setItem('tarot-reading-history', JSON.stringify(history));
     }
 });
