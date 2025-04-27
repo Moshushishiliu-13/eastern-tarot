@@ -30,6 +30,8 @@
 
 .spread-option.selected {
   border: 2px solid var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
 }
 
 .spread-preview {
@@ -248,4 +250,142 @@
   .celtic-card {
     margin-bottom: 40px;
   }
+}
+
+/* 五张牌阵(二选一牌阵)的布局样式 */
+.five-card-preview {
+  position: relative;
+  height: 120px;
+  width: 100%;
+}
+
+.five-card-preview .mini-card {
+  position: absolute;
+  width: 25px;
+  height: 40px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 五张牌阵预览中的牌位置 - V字型决策布局 */
+.fc-1 { top: 80px; left: 125px; } /* 现在-V底部 */
+.fc-2 { top: 40px; left: 85px; }  /* 选择A的发展-左中 */
+.fc-3 { top: 40px; left: 165px; } /* 选择B的发展-右中 */
+.fc-4 { top: 10px; left: 85px; }  /* 选择A的影响-左上 */
+.fc-5 { top: 10px; left: 165px; } /* 选择B的影响-右上 */
+
+/* 五张牌阵布局 - V字型决策布局 */
+.five-card-spread {
+  display: grid;
+  grid-template-areas:
+    "option-a-impact . option-b-impact"
+    "option-a-outcome . option-b-outcome"
+    ". current .";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-gap: 30px;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  justify-items: center;
+}
+
+.five-card {
+  width: 120px;
+  height: 200px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.five-current { grid-area: current; }
+.five-option-a { grid-area: option-a-outcome; }
+.five-option-b { grid-area: option-b-outcome; }
+.five-option-a-impact { grid-area: option-a-impact; }
+.five-option-b-impact { grid-area: option-b-impact; }
+
+/* 给每张牌添加自定义标签 */
+.option-label {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-weight: bold;
+  color: var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+/* 牌标签 */
+.card-label {
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .five-card-spread {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .five-card {
+    margin-bottom: 30px;
+  }
+}
+
+/* 五张牌阵预览在牌阵选择页面中的样式 */
+.spread-option .five-card-preview {
+  position: relative;
+  width: 100%;
+  height: 130px;
+}
+
+.spread-option .five-card-preview .mini-card {
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* V字型布局的预览牌位置 */
+.spread-option .fc-1 { top: 20px; left: 70px; } /* 过去 */
+.spread-option .fc-2 { top: 40px; left: 100px; } /* 现状 */
+.spread-option .fc-3 { top: 80px; left: 130px; } /* 挑战 */
+.spread-option .fc-4 { top: 40px; left: 160px; } /* 未来 */
+.spread-option .fc-5 { top: 20px; left: 190px; } /* 建议 */
+
+/* 塔罗牌背面样式 */
+.card-back {
+  background-image: url('../images/card-back.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* 修改现有的牌样式以支持背面 */
+.spread-card, .celtic-card, .five-card, .mini-card {
+  background-image: url('../images/card-back.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* 当牌被翻开时的样式 */
+.spread-card.flipped, .celtic-card.flipped, .five-card.flipped, .mini-card.flipped {
+  background-image: none;
+  background-color: #f0f0f0;
 }

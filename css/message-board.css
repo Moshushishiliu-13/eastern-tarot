@@ -1,0 +1,1229 @@
+/* 留言板样式 */
+.message-board {
+    padding: 60px 0;
+    background-color: white;
+}
+
+.message-board h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.section-description {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: #777;
+}
+
+/* 登录表单样式 */
+.login-section {
+    max-width: 500px;
+    margin: 0 auto 40px;
+    padding: 25px;
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.login-section h2 {
+    color: var(--dark-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-form .form-group {
+    margin-bottom: 15px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+}
+
+.login-help {
+    margin-top: 15px;
+    text-align: center;
+    color: #888;
+}
+
+/* 用户信息和留言表单 */
+.message-section {
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+}
+
+.btn-small {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.message-form {
+    padding: 25px;
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    box-shadow: var(--box-shadow);
+}
+
+.message-form h3 {
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+.message-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    resize: vertical;
+}
+
+/* 留言列表样式 */
+.messages-list {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.messages-list h3 {
+    margin-bottom: 20px;
+    color: var(--dark-color);
+    text-align: center;
+}
+
+.no-messages {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+    color: #777;
+}
+
+.message-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.message-user {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.message-date {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.message-content {
+    line-height: 1.6;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .login-section,
+    .message-section,
+    .messages-list {
+        padding: 15px;
+    }
+    
+    .message-header {
+        flex-direction: column;
+    }
+    
+    .message-date {
+        margin-top: 5px;
+    }
+} 
+
+/* 在src/styles/Draw.module.css中添加 */
+.favoriteButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s, transform 0.2s;
+  z-index: 2;
+  padding: 5px;
+  text-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+.favoriteButton:hover {
+  transform: scale(1.2);
+  color: #ffdd00;
+}
+
+.favoriteButton.favorited {
+  color: gold;
+}
+
+/* src/styles/Favorites.module.css */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 80vh;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  background: linear-gradient(135deg, #9C27B0, #673AB7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(103, 58, 183, 0.1);
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.cardContainer:hover {
+  transform: translateY(-5px);
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardName {
+  margin-top: 0.8rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 5rem 0;
+  color: #666;
+}
+
+.empty {
+  text-align: center;
+  margin: 5rem 0;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.exploreButton {
+  display: inline-block;
+  background: linear-gradient(135deg, #9C27B0, #673AB7);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(103, 58, 183, 0.3);
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+}
+
+.exploreButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(103, 58, 183, 0.4);
+}
+
+/* 响应式样式 */
+@media (max-width: 768px) {
+  .cardGrid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+} 
+
+/* src/styles/MessageBoard.module.css */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 80vh;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  background: linear-gradient(135deg, #9C27B0, #673AB7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.statusMessage {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.error {
+  background-color: #fbe9e7;
+  color: #c62828;
+}
+
+.messageForm {
+  background-color: #f5f5f5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.userInfo {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.username {
+  font-weight: bold;
+  color: #673AB7;
+}
+
+.messageInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: inherit;
+  margin-bottom: 10px;
+}
+
+.formFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.charCount {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+.submitButton {
+  background-color: #673AB7;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submitButton:hover {
+  background-color: #5e35b1;
+}
+
+.loginPrompt {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.loginLink {
+  color: #673AB7;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+}
+
+.messageList {
+  margin-top: 2rem;
+}
+
+.messageList h2 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.emptyMessages {
+  text-align: center;
+  color: #888;
+  padding: 2rem 0;
+}
+
+.messageItem {
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.messageHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.messageUser {
+  font-weight: bold;
+  color: #673AB7;
+}
+
+.messageDate {
+  color: #888;
+}
+
+.messageContent {
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.deleteButton {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: transparent;
+  border: none;
+  color: #f44336;
+  font-size: 0.8rem;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.deleteButton:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .messageHeader {
+    flex-direction: column;
+  }
+  
+  .messageDate {
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+  }
+} 
+
+/* src/styles/Login.module.css */
+.container {
+  max-width: 100%;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.05), rgba(103, 58, 183, 0.1));
+}
+
+.formCard {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #673AB7;
+  font-size: 1.8rem;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.error {
+  background-color: #fbe9e7;
+  color: #c62828;
+}
+
+.inputGroup {
+  margin-bottom: 1.2rem;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.inputGroup input:focus {
+  outline: none;
+  border-color: #673AB7;
+}
+
+.submitButton {
+  width: 100%;
+  background: linear-gradient(135deg, #9C27B0, #673AB7);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 1rem;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(103, 58, 183, 0.3);
+}
+
+.switchMode {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.switchButton {
+  background: none;
+  border: none;
+  color: #673AB7;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+.switchButton:hover {
+  color: #9C27B0;
+}
+
+/* src/styles/Profile.module.css */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 80vh;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  background: linear-gradient(135deg, #9C27B0, #673AB7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.profileCard {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.userAvatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #673AB7;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  margin-right: 1.5rem;
+}
+
+.userName h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.adminBadge {
+  display: inline-block;
+  background-color: #FF9800;
+  color: white;
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 1.5rem 0;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statValue {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #673AB7;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.2rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.actionButton {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+
+.primaryAction {
+  background-color: #673AB7;
+  color: white;
+}
+
+.primaryAction:hover {
+  background-color: #5e35b1;
+}
+
+.secondaryAction {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.secondaryAction:hover {
+  background-color: #e0e0e0;
+}
+
+@media (max-width: 600px) {
+  .userInfo {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .userAvatar {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+} 
+
+/* src/styles/globals.css */
+:root {
+  --primary-color: #673AB7;
+  --primary-light: #9C27B0;
+  --primary-dark: #5e35b1;
+  --accent-color: #FFC107;
+  --text-color: #333333;
+  --text-secondary: #666666;
+  --background-color: #f9f9f9;
+  --card-bg: #ffffff;
+  --border-color: #e0e0e0;
+  --white: #ffffff;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+[data-theme='dark'] {
+  --primary-color: #9575cd;
+  --primary-light: #ce93d8;
+  --primary-dark: #7e57c2;
+  --accent-color: #FFD54F;
+  --text-color: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --background-color: #121212;
+  --card-bg: #1e1e1e;
+  --border-color: #333333;
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+.main-content {
+  min-height: calc(100vh - 130px);
+}
+
+/* 共用动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 可访问性 - 焦点样式 */
+:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* src/styles/Footer.module.css */
+.footer {
+  background-color: #2a1a47;
+  color: #fff;
+  padding: 3rem 0 1rem;
+  margin-top: 3rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footerContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footerLogo h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footerLogo p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footerLinks h4,
+.footerContact h4 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.footerLinks ul {
+  list-style: none;
+}
+
+.footerLinks li {
+  margin-bottom: 0.5rem;
+}
+
+.footerLinks a {
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.footerLinks a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.footerContact p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.footerBottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .footerContent {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+} 
+
+/* 在MessageBoard.module.css中添加 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 0.5rem;
+}
+
+.pageButton {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pageButton:hover {
+  background-color: #f0f0f0;
+}
+
+.pageButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.currentPage {
+  background-color: #673AB7;
+  color: white;
+  border-color: #673AB7;
+}
+
+.currentPage:hover {
+  background-color: #5e35b1;
+}
+
+/* src/styles/Breadcrumb.module.css */
+.breadcrumb {
+  margin: 1rem 0 2rem;
+  padding: 0.5rem 1rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.breadcrumb ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: '/';
+  margin: 0 0.5rem;
+  color: #999;
+}
+
+.breadcrumb a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  color: #666;
+}
+
+/* 可以添加到全局CSS或各组件的CSS中 */
+@media (max-width: 768px) {
+  /* 调整导航栏在移动设备上的显示 */
+  .userMenu {
+    position: static;
+  }
+  
+  .userDropdown {
+    position: static;
+    box-shadow: none;
+    margin-top: 0.5rem;
+  }
+  
+  /* 调整收藏页面网格布局 */
+  .cardGrid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+  
+  /* 调整留言表单 */
+  .formFooter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .submitButton {
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 极小屏幕的调整 */
+  .container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  /* 调整收藏页面网格布局 */
+  .cardGrid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+  }
+} 
+
+/* 网络通知样式 - 添加到globals.css */
+.network-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 4px;
+  color: white;
+  z-index: 1000;
+  animation: slideIn 0.3s, fadeOut 0.5s 1.5s;
+  max-width: 300px;
+}
+
+.network-notification.success {
+  background-color: #4caf50;
+}
+
+.network-notification.error {
+  background-color: #f44336;
+}
+
+.network-notification.hide {
+  animation: slideOut 0.5s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+} 
+
+/* src/styles/spreads/ChoiceSpread.module.css */
+.spreadContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.spreadTitle {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.spreadTitle h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.spreadTitle p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.spreadLayout {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.optionSection, .adviceSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 1rem;
+}
+
+.optionLabel, .adviceLabel {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.optionLabel h3, .adviceLabel h3 {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background-color: rgba(103, 58, 183, 0.1);
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.optionLabel h3:hover {
+  background-color: rgba(103, 58, 183, 0.2);
+}
+
+.editIcon {
+  font-size: 0.8rem;
+  opacity: 0.5;
+  margin-left: 5px;
+}
+
+.optionLabel h3:hover .editIcon {
+  opacity: 1;
+}
+
+.editLabel {
+  display: flex;
+  align-items: center;
+}
+
+.editLabel input {
+  padding: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 120px;
+}
+
+.editLabel button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cardPosition {
+  perspective: 1000px;
+  margin-bottom: 1rem;
+}
+
+.emptyCard {
+  width: 180px;
+  height: 300px;
+  background-color: rgba(103, 58, 183, 0.05);
+  border: 2px dashed rgba(103, 58, 183, 0.3);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.emptyCard:hover {
+  background-color: rgba(103, 58, 183, 0.1);
+  transform: translateY(-5px);
+}
+
+.emptyCard span {
+  color: var(--primary-color);
+  font-size: 0.9rem;
+}
+
+.spreadHint {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* 适配移动设备 */
+@media (max-width: 768px) {
+  .spreadLayout {
+    flex-direction: column;
+  }
+  
+  .optionSection, .adviceSection {
+    margin: 1rem 0;
+  }
+  
+  .adviceSection {
+    order: -1; /* 在移动设备上将建议牌放在顶部 */
+  }
+} 
