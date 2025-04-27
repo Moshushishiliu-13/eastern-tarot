@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言板 - 神秘塔罗</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/message-board.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SEO相关元数据 -->
+    <meta name="description" content="神秘塔罗牌留言板，分享您的塔罗体验和感受">
+    <meta name="keywords" content="塔罗牌,留言板,用户评价,塔罗交流">
+    <!-- 控制爬虫 -->
+    <meta name="robots" content="noindex, nofollow">
+    <!-- 百度统计代码 -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?c74539f43038aa9227519e7b03e462d1";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">神秘塔罗</a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="draw.html">单牌抽取</a></li>
+                    <li><a href="spread.html">牌阵解读</a></li>
+                    <li><a href="message-board.html" class="active">留言板</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="message-board">
+            <div class="container">
+                <h1>留言板</h1>
+                <p class="section-description">在这里分享您的塔罗体验和感受，与其他用户交流。</p>
+                
+                <!-- 登录区域 -->
+                <div id="login-section" class="login-section">
+                    <h2>用户登录</h2>
+                    <form id="login-form" class="login-form">
+                        <div class="form-group">
+                            <label for="username">用户名</label>
+                            <input type="text" id="username" name="username" required placeholder="输入您的用户名">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">密码</label>
+                            <input type="password" id="password" name="password" required placeholder="输入密码">
+                        </div>
+                        <button type="submit" class="btn btn-primary">登录</button>
+                        
+                        <p class="login-help">
+                            <small>提示：此为演示版，任意用户名密码均可登录</small>
+                        </p>
+                    </form>
+                </div>
+                
+                <!-- 登录后显示的留言区域 -->
+                <div id="message-section" class="message-section" style="display: none;">
+                    <div class="user-info">
+                        欢迎您, <span id="logged-username">用户</span>!
+                        <button id="logout-btn" class="btn btn-small">退出登录</button>
+                    </div>
+                    
+                    <!-- 留言表单 -->
+                    <form id="message-form" class="message-form">
+                        <h3>发表留言</h3>
+                        <div class="form-group">
+                            <label for="message-content">留言内容</label>
+                            <textarea id="message-content" name="message" required placeholder="分享您的塔罗体验和感受..." rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">发布留言</button>
+                    </form>
+                </div>
+                
+                <!-- 留言列表 -->
+                <div class="messages-list">
+                    <h3>用户留言</h3>
+                    <div id="messages-container">
+                        <!-- 留言内容将通过JS动态添加 -->
+                        <div class="no-messages">暂无留言，成为第一个留言的用户吧！</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>神秘塔罗</h3>
+                    <p>您的命运指南</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="draw.html">单牌抽取</a></li>
+                        <li><a href="spread.html">牌阵解读</a></li>
+                        <li><a href="message-board.html">留言板</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>联系我们</h4>
+                    <p>邮箱: contact@eastern-tarot.com</p>
+                </div>
+            </div>
+            
+            <!-- 友情链接区域 -->
+            <div class="footer-friends">
+                <h4>友情链接</h4>
+                <div class="friend-links">
+                    <a href="http://www.xxtest.com" target="_blank" rel="noopener">前途测试免费算命导航网</a>
+                    <a href="http://www.certificate-training.com" target="_blank" rel="noopener">认证培训网</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 神秘塔罗. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/message-board.js"></script>
+</body>
+</html> 

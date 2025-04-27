@@ -1,0 +1,33 @@
+# 防止图片外链
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteCond %{HTTP_REFERER} !^$
+  RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?eastern-tarot.com [NC]
+  RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?localhost [NC]
+  RewriteRule \.(jpg|jpeg|png|gif|svg)$ - [NC,F,L]
+</IfModule>
+
+# 限制请求频率(防CC攻击)
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteCond %{REQUEST_METHOD} POST
+  RewriteCond %{REQUEST_URI} .(wp-comments-post|wp-login)\.php*
+  RewriteCond %{HTTP_REFERER} !.*eastern-tarot.com.* [OR]
+  RewriteCond %{HTTP_USER_AGENT} ^$
+  RewriteRule (.*) - [F,L]
+</IfModule>
+
+# 添加安全HTTP头
+<IfModule mod_headers.c>
+    # 禁止MIME类型嗅探
+    Header set X-Content-Type-Options "nosniff"
+    
+    # 启用XSS保护
+    Header set X-XSS-Protection "1; mode=block"
+    
+    # 控制框架嵌入
+    Header set X-Frame-Options "SAMEORIGIN"
+    
+    # 限制引用来源信息
+    Header set Referrer-Policy "no-referrer"
+</IfModule> 
