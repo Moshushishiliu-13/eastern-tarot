@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200">
+  <style>
+    .card {
+      fill: #e0e0e0;
+      stroke: #999;
+      stroke-width: 1;
+    }
+    .label {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      text-anchor: middle;
+      fill: #666;
+      font-weight: bold;
+    }
+  </style>
+  
+  <!-- 现在 - V底部 -->
+  <rect x="120" y="120" width="60" height="90" rx="5" ry="5" class="card" />
+  <text x="150" y="172" class="label">现在</text>
+  
+  <!-- 选择A的发展 - 左中 -->
+  <rect x="60" y="70" width="60" height="90" rx="5" ry="5" class="card" />
+  <text x="90" y="122" class="label">选A发展</text>
+  
+  <!-- 选择B的发展 - 右中 -->
+  <rect x="180" y="70" width="60" height="90" rx="5" ry="5" class="card" />
+  <text x="210" y="122" class="label">选B发展</text>
+  
+  <!-- 选择A的影响 - 左上 -->
+  <rect x="60" y="10" width="60" height="90" rx="5" ry="5" class="card" />
+  <text x="90" y="62" class="label">选A影响</text>
+  
+  <!-- 选择B的影响 - 右上 -->
+  <rect x="180" y="10" width="60" height="90" rx="5" ry="5" class="card" />
+  <text x="210" y="62" class="label">选B影响</text>
+</svg> 
