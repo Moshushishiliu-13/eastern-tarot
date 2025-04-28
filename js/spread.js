@@ -94,37 +94,27 @@ document.addEventListener('DOMContentLoaded', function() {
             '这张牌展示了您现在所处的情况和影响您的能量。',
             '这张牌暗示了您问题可能的发展方向或结果。'
         ];
-        
-        // 为每张牌随机分配正逆位
         const cardPositions = cards.map(() => Math.random() > 0.5 ? '逆位' : '正位');
-        
         let spreadHTML = `
             <div class="container">
                 <div class="three-card-spread">
         `;
-        
-        // 添加牌的视觉展示
         cards.forEach((card, index) => {
             spreadHTML += `
-                <div class="spread-card" style="background-image: url('${card.image}'); 
+                <div class="spread-card" style="position: relative; background-image: url('${card.image}'); 
                     ${cardPositions[index] === '逆位' ? 'transform: rotate(180deg);' : ''}">
                     <div class="card-label">${positions[index]}</div>
                 </div>
             `;
         });
-        
         spreadHTML += `
                 </div>
-                
                 <div class="spread-interpretation">
                     <h2>三卡牌阵：${question}</h2>
         `;
-        
-        // 添加每张牌的解读
         cards.forEach((card, index) => {
             const positionText = cardPositions[index];
             const interpretation = positionText === '正位' ? card.upright : card.reversed;
-            
             spreadHTML += `
                 <div class="card-interpretation">
                     <h3>${card.name} <span class="position">(${positions[index]} - ${positionText})</span></h3>
@@ -137,8 +127,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `;
         });
-        
-        // 添加整体解读
         spreadHTML += `
                 <div class="overall-meaning">
                     <h3>整体解读</h3>
@@ -168,7 +156,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
         `;
-        
         spreadReading.innerHTML = spreadHTML;
     }
     
@@ -179,36 +166,27 @@ document.addEventListener('DOMContentLoaded', function() {
             '目标/可能性', '近期发展', '自我认知', '外在环境', 
             '希望或担忧', '最终结果'
         ];
-        
-        // 为每张牌随机分配正逆位
         const cardPositions = cards.map(() => Math.random() > 0.5 ? '逆位' : '正位');
-        
         let spreadHTML = `
             <div class="container">
                 <div class="celtic-cross-spread">
         `;
-        
-        // 添加牌的视觉展示
         cards.forEach((card, index) => {
             spreadHTML += `
-                <div class="celtic-card card-${index + 1}" style="background-image: url('${card.image}'); 
+                <div class="celtic-card card-${index + 1}" style="position: relative; background-image: url('${card.image}'); 
                     ${cardPositions[index] === '逆位' ? 'transform: rotate(180deg);' : ''}">
+                    <div class="card-label">${positions[index]}</div>
                 </div>
             `;
         });
-        
         spreadHTML += `
                 </div>
-                
                 <div class="spread-interpretation">
                     <h2>凯尔特十字牌阵：${question}</h2>
         `;
-        
-        // 添加每张牌的解读
         cards.forEach((card, index) => {
             const positionText = cardPositions[index];
             const interpretation = positionText === '正位' ? card.upright : card.reversed;
-            
             spreadHTML += `
                 <div class="card-interpretation">
                     <h3>${index + 1}. ${card.name} <span class="position">(${positions[index]} - ${positionText})</span></h3>
@@ -221,8 +199,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `;
         });
-        
-        // 添加整体解读
         spreadHTML += `
                 <div class="overall-meaning">
                     <h3>整体解读</h3>
@@ -249,7 +225,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
         `;
-        
         spreadReading.innerHTML = spreadHTML;
     }
     
@@ -304,8 +279,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // 完整的五张牌阵显示函数
     function displayFiveCardSpread(cards, question) {
         console.log('执行displayFiveCardSpread函数');
-        
-        // 修改位置名称，使其与二选一V字型布局一致
         const positions = ['现在', '选择A的发展', '选择B的发展', '选择A的影响', '选择B的影响'];
         const meanings = [
             '这张牌代表您当前所处的情况和决策点。',
@@ -314,15 +287,9 @@ document.addEventListener('DOMContentLoaded', function() {
             '这张牌展示选择A可能带来的长期影响或结果。',
             '这张牌展示选择B可能带来的长期影响或结果。'
         ];
-        
-        // 为每张牌随机分配正逆位
         const cardPositions = cards.map(() => Math.random() > 0.6 ? '逆位' : '正位');
-        
-        // 提取问题中可能的选项文本
         let optionA = "选项A";
         let optionB = "选项B";
-        
-        // 尝试从问题中提取选项文本
         if (question.includes("是选") && question.includes("还是")) {
             const parts = question.split(/是选|还是/);
             if (parts.length >= 3) {
@@ -330,46 +297,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 optionB = parts[2].split('?')[0].trim();
             }
         }
-        
         console.log('牌阵选项:', optionA, optionB);
-        
         let spreadHTML = `
             <div class="container">
                 <h2>万能二选一牌阵：${question}</h2>
                 <p class="spread-description">V字型决策牌阵：底部为当前情况，左侧为"${optionA}"的发展和影响，右侧为"${optionB}"的发展和影响。</p>
-                
                 <div class="five-card-spread">
         `;
-        
-        // 添加牌的视觉展示
-        const positionClasses = ['five-current', 'five-option-a', 'five-option-b', 'five-option-a-impact', 'five-option-b-impact'];
+        const positionClasses = [
+            'five-current',
+            'five-option-a',
+            'five-option-b',
+            'five-option-a-impact',
+            'five-option-b-impact'
+        ];
         cards.forEach((card, index) => {
-            let labelText = '';
-            if (index === 1) labelText = `<div class="option-label">${optionA}</div>`;
-            if (index === 2) labelText = `<div class="option-label">${optionB}</div>`;
-            if (index === 3) labelText = `<div class="option-label">${optionA}的影响</div>`;
-            if (index === 4) labelText = `<div class="option-label">${optionB}的影响</div>`;
-            
             spreadHTML += `
-                <div class="five-card ${positionClasses[index]}" style="background-image: url('${card.image}'); 
+                <div class="five-card ${positionClasses[index]}" style="position: relative; background-image: url('${card.image}'); 
                     ${cardPositions[index] === '逆位' ? 'transform: rotate(180deg);' : ''}">
-                    ${labelText}
                     <div class="card-label">${positions[index]}</div>
                 </div>
             `;
         });
-        
         spreadHTML += `
                 </div>
-                
                 <div class="spread-interpretation">
         `;
-        
-        // 添加每张牌的解读
         cards.forEach((card, index) => {
             const positionText = cardPositions[index];
             const interpretation = positionText === '正位' ? card.upright : card.reversed;
-            
             spreadHTML += `
                 <div class="card-interpretation">
                     <h3>${card.name} <span class="position">(${positions[index]} - ${positionText})</span></h3>
@@ -379,8 +335,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `;
         });
-        
-        // 添加整体解读部分
         spreadHTML += `
                 <div class="overall-meaning">
                     <h3>整体解读</h3>
@@ -400,7 +354,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
         `;
-        
         console.log('生成HTML完成');
         spreadReading.innerHTML = spreadHTML;
         console.log('显示结果完成');
