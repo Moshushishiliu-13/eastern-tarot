@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystic Tarot - Free Online Tarot Reading</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SEO meta -->
+    <meta name="description" content="Free online tarot reading website, offering single card draws and spread interpretations.">
+    <meta name="keywords" content="tarot, divination, mystic tarot, free tarot, spread interpretation">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="bingbot" content="noindex, nofollow">
+    <meta name="referrer" content="no-referrer">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index-en.html">Mystic Tarot</a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index-en.html" class="active">Home</a></li>
+                    <li><a href="draw-en.html">Single Card</a></li>
+                    <li><a href="spread-en.html">Spreads</a></li>
+                    <li><a href="about-en.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="lang-switcher" style="margin-left:auto;display:flex;align-items:center;gap:0.5rem;">
+                <a href="index.html" class="btn btn-lang">中文</a>
+                <a href="index-en.html" class="btn btn-lang active">English</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Explore the Mystical World of Tarot</h1>
+                <p>Gain insight and guidance for your life through the wisdom of tarot cards.</p>
+                <div class="hero-buttons">
+                    <a href="draw-en.html" class="btn btn-primary">Start Single Card Draw</a>
+                    <a href="spread-en.html" class="btn btn-secondary">Try a Spread</a>
+                    <button id="favoriteBtn" class="btn btn-favorite" title="Use your browser shortcut to bookmark this site">
+                        Bookmark This Site
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Tarot Reading Services</h2>
+                <div class="feature-grid">
+                    <a href="draw-en.html" class="feature-card-link">
+                        <div class="feature-card">
+                            <i class="fas fa-star feature-icon"></i>
+                            <h3>Single Card Draw</h3>
+                            <p>Quick guidance for simple yes/no or daily questions.</p>
+                        </div>
+                    </a>
+                    <a href="spread-en.html#three-card" class="feature-card-link">
+                        <div class="feature-card">
+                            <i class="fas fa-moon feature-icon"></i>
+                            <h3>Three Card Spread</h3>
+                            <p>A complete view of past, present, and future.</p>
+                        </div>
+                    </a>
+                    <a href="spread-en.html#five-card" class="feature-card-link">
+                        <div class="feature-card">
+                            <i class="fas fa-sun feature-icon"></i>
+                            <h3>Universal Two-Choice Spread</h3>
+                            <p>V-shaped layout to help you make wise decisions between two options.</p>
+                        </div>
+                    </a>
+                    <a href="spread-en.html#celtic-cross" class="feature-card-link">
+                        <div class="feature-card">
+                            <i class="fas fa-compass feature-icon"></i>
+                            <h3>Celtic Cross</h3>
+                            <p>In-depth analysis of all aspects of complex questions.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2>User Feedback</h2>
+                <div class="testimonial-slider">
+                    <div class="testimonial">
+                        <p class="quote">"Mystic Tarot helped me make the right career choice. So accurate!"</p>
+                        <p class="author">- Emily</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="quote">"The interface is clean and friendly, and the interpretations are detailed and inspiring."</p>
+                        <p class="author">- Alex</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Mystic Tarot</h3>
+                    <p>Your guide to destiny</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index-en.html">Home</a></li>
+                        <li><a href="draw-en.html">Single Card</a></li>
+                        <li><a href="spread-en.html">Spreads</a></li>
+                        <li><a href="about-en.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Email: contact@eastern-tarot.com</p>
+                </div>
+            </div>
+            
+            <!-- Friend Links Section -->
+            <div class="footer-friends">
+                <h4>Friend Links</h4>
+                <div class="friend-links">
+                    <a href="http://www.xxtest.com" target="_blank" rel="noopener">Fortune Test Free Divination Navigation</a>
+                    <a href="http://www.certificate-training.com" target="_blank" rel="noopener">Certification Training</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mystic Tarot. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating bookmark tip -->
+    <div id="favTip" class="favorite-tip" style="display: none;">
+        <p>💡 Tip: Press <span id="keyCommand">Ctrl+D</span> to bookmark this site</p>
+        <button id="closeTip">✕</button>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot Spreads - Mystic Tarot</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/spread.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index-en.html">Mystic Tarot</a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index-en.html">Home</a></li>
+                    <li><a href="draw-en.html">Single Card</a></li>
+                    <li><a href="spread-en.html" class="active">Spreads</a></li>
+                    <li><a href="about-en.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <!-- Language Switcher -->
+            <div class="lang-switcher" style="margin-left:auto;display:flex;align-items:center;gap:0.5rem;">
+                <a href="spread.html" class="btn btn-lang">中文</a>
+                <a href="spread-en.html" class="btn btn-lang active">English</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Tarot Spreads</h1>
+                <p>Select a spread for deeper guidance</p>
+            </div>
+        </section>
+
+        <section class="spread-selection">
+            <div class="container">
+                <div class="spread-options">
+                    <div class="spread-option" data-spread="three-card">
+                        <div class="spread-preview">
+                            <div class="mini-card"></div>
+                            <div class="mini-card"></div>
+                            <div class="mini-card"></div>
+                        </div>
+                        <h3>Three Card Spread</h3>
+                        <p>Simple layout for past, present, and future</p>
+                    </div>
+                    
+                    <div class="spread-option" data-spread="five-card">
+                        <div class="spread-preview five-card-preview">
+                            <div class="mini-card fc-1"></div>
+                            <div class="mini-card fc-2"></div>
+                            <div class="mini-card fc-3"></div>
+                            <div class="mini-card fc-4"></div>
+                            <div class="mini-card fc-5"></div>
+                        </div>
+                        <h3>Universal Five Card Spread</h3>
+                        <p>Comprehensive analysis of current situation, challenges, past, future, and advice</p>
+                    </div>
+                    
+                    <div class="spread-option" data-spread="celtic-cross">
+                        <div class="spread-preview celtic-preview">
+                            <div class="mini-card cc-1"></div>
+                            <div class="mini-card cc-2"></div>
+                            <div class="mini-card cc-3"></div>
+                            <div class="mini-card cc-4"></div>
+                            <div class="mini-card cc-5"></div>
+                            <div class="mini-card cc-6"></div>
+                            <div class="mini-card cc-7"></div>
+                            <div class="mini-card cc-8"></div>
+                            <div class="mini-card cc-9"></div>
+                            <div class="mini-card cc-10"></div>
+                        </div>
+                        <h3>Celtic Cross</h3>
+                        <p>Detailed and comprehensive reading for complex situations</p>
+                    </div>
+                </div>
+
+                <div class="spread-form">
+                    <label for="spread-question">Enter your question:</label>
+                    <input type="text" id="spread-question" placeholder="e.g. What is the direction of my future love life?">
+                    <button id="draw-spread" class="btn btn-primary">Start Reading</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="spread-reading" id="spread-reading">
+            <!-- Spread reading results will be displayed here -->
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Mystic Tarot</h3>
+                    <p>Your guide to destiny</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index-en.html">Home</a></li>
+                        <li><a href="draw-en.html">Single Card</a></li>
+                        <li><a href="spread-en.html">Spreads</a></li>
+                        <li><a href="about-en.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Email: contact@eastern-tarot.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mystic Tarot. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cards-en.js"></script>
+    <script src="js/spread-en.js"></script>
+</body>
+</html>
