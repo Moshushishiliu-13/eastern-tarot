@@ -29,4 +29,4 @@
 
 ## 联系方式
 
-邮箱：contact@eastern-tarot.com
+邮箱：121681145@qq.com
