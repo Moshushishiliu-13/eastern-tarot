@@ -13,6 +13,7 @@
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="bingbot" content="noindex, nofollow">
     <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <script>
         fetch('https://ipapi.co/json/')
             .then(response => response.json())
@@ -48,6 +49,14 @@
                 <a href="index.html" class="btn btn-lang">中文</a>
                 <a href="index-en.html" class="btn btn-lang active">English</a>
             </div>
+            <div class="login-buttons" style="margin-left:1rem;display:flex;align-items:center;gap:0.5rem;">
+                <button id="wechatLogin" class="btn btn-login" style="background-color:#07C160;color:white;">
+                    <i class="fab fa-weixin"></i> WeChat Login
+                </button>
+                <button id="googleLogin" class="btn btn-login" style="background-color:#DB4437;color:white;">
+                    <i class="fab fa-google"></i> Google Login
+                </button>
+            </div>
         </div>
     </header>
 
@@ -75,6 +84,7 @@
                             <i class="fas fa-star feature-icon"></i>
                             <h3>Single Card Draw</h3>
                             <p>Quick guidance for simple yes/no or daily questions.</p>
+                            <span class="free-tag" style="position:absolute;top:10px;right:10px;background-color:#4CAF50;color:white;padding:2px 8px;border-radius:4px;font-size:12px;z-index:1;">免费/Free</span>
                         </div>
                     </a>
                     <a href="spread-en.html#three-card" class="feature-card-link">
@@ -82,6 +92,7 @@
                             <i class="fas fa-moon feature-icon"></i>
                             <h3>Three Card Spread</h3>
                             <p>A complete view of past, present, and future.</p>
+                            <span class="free-tag" style="position:absolute;top:10px;right:10px;background-color:#4CAF50;color:white;padding:2px 8px;border-radius:4px;font-size:12px;z-index:1;">免费/Free</span>
                         </div>
                     </a>
                     <a href="spread-en.html#five-card" class="feature-card-link">
@@ -89,6 +100,7 @@
                             <i class="fas fa-sun feature-icon"></i>
                             <h3>Universal Two-Choice Spread</h3>
                             <p>V-shaped layout to help you make wise decisions between two options.</p>
+                            <span class="free-tag" style="position:absolute;top:10px;right:10px;background-color:#4CAF50;color:white;padding:2px 8px;border-radius:4px;font-size:12px;z-index:1;">免费/Free</span>
                         </div>
                     </a>
                     <a href="spread-en.html#celtic-cross" class="feature-card-link">
@@ -96,6 +108,7 @@
                             <i class="fas fa-compass feature-icon"></i>
                             <h3>Celtic Cross</h3>
                             <p>In-depth analysis of all aspects of complex questions.</p>
+                            <span class="free-tag" style="position:absolute;top:10px;right:10px;background-color:#4CAF50;color:white;padding:2px 8px;border-radius:4px;font-size:12px;z-index:1;">免费/Free</span>
                         </div>
                     </a>
                     <a href="https://appjkajrmtw8997.elink.ai/goods?spu_id=SPU_HKC_1746277418_6816142ab2c1c_IwezLbfp" class="feature-card-link">
@@ -170,5 +183,16 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        document.getElementById('wechatLogin').addEventListener('click', function() {
+            // 这里可以调用微信登录API
+            alert('WeChat login feature coming soon!');
+        });
+        document.getElementById('googleLogin').addEventListener('click', function() {
+            // 这里可以调用Google登录API
+            alert('Google login feature coming soon!');
+        });
+    </script>
 </body>
 </html>
