@@ -25,6 +25,19 @@
     <meta name="bingbot" content="noindex, nofollow">
     <meta name="baidu" content="noindex, nofollow">
     <meta name="referrer" content="no-referrer">
+    <script>
+        fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data => {
+                if (data.country_code !== 'CN') {
+                    window.location.href = 'https://www.eastern-tarot.com/index-en.html';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching IP info:', error);
+                window.location.href = 'https://www.eastern-tarot.com/index-en.html';
+            });
+    </script>
 </head>
 <body>
     <header class="header">
@@ -46,6 +59,14 @@
             <div class="lang-switcher" style="margin-left:auto;display:flex;align-items:center;gap:0.5rem;">
                 <a href="index.html" class="btn btn-lang active">中文</a>
                 <a href="index-en.html" class="btn btn-lang">English</a>
+            </div>
+            <div class="login-buttons" style="margin-left:1rem;display:flex;align-items:center;gap:0.5rem;">
+                <button id="wechatLogin" class="btn btn-login" style="background-color:#07C160;color:white;">
+                    <i class="fab fa-weixin"></i> 微信登录
+                </button>
+                <button id="googleLogin" class="btn btn-login" style="background-color:#DB4437;color:white;">
+                    <i class="fab fa-google"></i> Google登录
+                </button>
             </div>
         </div>
     </header>
@@ -136,7 +157,7 @@
                 </div>
                 <div class="footer-contact">
                     <h4>联系我们</h4>
-                    <p>邮箱: contact@eastern-tarot.com</p>
+                    <p>邮箱: 121681145@qq.com</p>
                 </div>
             </div>
             
@@ -162,5 +183,16 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        document.getElementById('wechatLogin').addEventListener('click', function() {
+            // 这里可以调用微信登录API
+            alert('微信登录功能即将上线！');
+        });
+        document.getElementById('googleLogin').addEventListener('click', function() {
+            // 这里可以调用Google登录API
+            alert('Google登录功能即将上线！');
+        });
+    </script>
 </body>
 </html>
