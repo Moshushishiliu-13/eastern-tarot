@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="card-interpretation">
                     <h3>${card.name} <span class="position">(${positions[index]} - ${positionText})</span></h3>
                     <p><strong>Keywords:</strong> ${interpretation.keywords}</p>
-                    <p><strong>Meaning:</strong> ${interpretation.description}</p>
+                    <p><strong>Meaning:</strong> ${interpretation.description}<br><span style="color:#4CAF50;font-size:14px;">@https://www.eastern-tarot.com Welcome to Eastern Tarot!</span></p>
                     <p><strong>Position Meaning:</strong> ${meanings[index]}</p>
                     <p><strong>In the context of your question:</strong> 
                         ${generateMeaning(card, positionText, positions[index], question)}
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="card-interpretation">
                     <h3>${index + 1}. ${card.name} <span class="position">(${positions[index]} - ${positionText})</span></h3>
                     <p><strong>Keywords:</strong> ${interpretation.keywords}</p>
-                    <p><strong>Meaning:</strong> ${interpretation.description}</p>
+                    <p><strong>Meaning:</strong> ${interpretation.description}<br><span style="color:#4CAF50;font-size:14px;">@https://www.eastern-tarot.com Welcome to Eastern Tarot!</span></p>
                     <p><strong>Position Meaning:</strong> ${getCelticPositionMeaning(index)}</p>
                     <p><strong>In the context of your question:</strong> 
                         ${generateMeaning(card, positionText, positions[index], question)}
@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="card-interpretation">
                     <h3>${card.name} <span class="position">(${positions[index]} - ${positionText})</span></h3>
                     <p><strong>Keywords:</strong> ${interpretation.keywords}</p>
-                    <p><strong>Meaning:</strong> ${interpretation.description}</p>
+                    <p><strong>Meaning:</strong> ${interpretation.description}<br><span style="color:#4CAF50;font-size:14px;">@https://www.eastern-tarot.com Welcome to Eastern Tarot!</span></p>
                     <p><strong>Position Meaning:</strong> ${meanings[index]}</p>
                     <p><strong>In the context of your question:</strong> 
                         ${generateMeaning(card, positionText, positions[index], question)}

@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="interpretation">
                 <h3>Card Meaning</h3>
-                <p>${interpretation.description}</p>
+                <p>${interpretation.description}<br><span style="color:#4CAF50;font-size:14px;">@https://www.eastern-tarot.com Welcome to Eastern Tarot!</span></p>
                 <h3>Relation to Your Question</h3>
                 <p>For your question "${document.getElementById('question').value || 'No specific question provided'}", this card suggests:</p>
                 <p>

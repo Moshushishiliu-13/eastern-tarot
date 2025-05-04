@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="card-interpretation">
                     <h3>${card.name} <span class="position">(${positions[index]} - ${positionText})</span></h3>
                     <p><strong>关键词：</strong> ${interpretation.keywords}</p>
-                    <p><strong>牌意：</strong> ${interpretation.description}</p>
+                    <p><strong>牌意：</strong> ${interpretation.description}<br><span style="color:#4CAF50;font-size:14px;">@https://www.eastern-tarot.com 欢迎您进入东大塔罗网！</span></p>
                     <p><strong>位置意义：</strong> ${meanings[index]}</p>
                     <p><strong>在您问题中的意义：</strong> 
                         ${generateMeaning(card, positionText, positions[index], question)}
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="card-interpretation">
                     <h3>${index + 1}. ${card.name} <span class="position">(${positions[index]} - ${positionText})</span></h3>
                     <p><strong>关键词：</strong> ${interpretation.keywords}</p>
-                    <p><strong>牌意：</strong> ${interpretation.description}</p>
+                    <p><strong>牌意：</strong> ${interpretation.description}<br><span style="color:#4CAF50;font-size:14px;">@https://www.eastern-tarot.com 欢迎您进入东大塔罗网！</span></p>
                     <p><strong>位置意义：</strong> ${getCelticPositionMeaning(index)}</p>
                     <p><strong>在您问题中的意义：</strong> 
                         ${generateMeaning(card, positionText, positions[index], question)}
@@ -330,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="card-interpretation">
                     <h3>${card.name} <span class="position">(${positions[index]} - ${positionText})</span></h3>
                     <p><strong>关键词：</strong> ${interpretation.keywords}</p>
-                    <p><strong>牌意：</strong> ${interpretation.description}</p>
+                    <p><strong>牌意：</strong> ${interpretation.description}<br><span style="color:#4CAF50;font-size:14px;">@https://www.eastern-tarot.com 欢迎您进入东大塔罗网！</span></p>
                     <p><strong>位置意义：</strong> ${meanings[index]}</p>
                 </div>
             `;

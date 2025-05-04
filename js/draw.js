@@ -69,14 +69,14 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="interpretation">
                 <h3>牌意解读</h3>
-                <p>${interpretation.description}</p>
+                <p>${interpretation.description}<br><span style="color:#4CAF50;font-size:14px;">@https://www.eastern-tarot.com 欢迎您进入东大塔罗网！</span></p>
                 
                 <h3>与您问题的关联</h3>
-                <p>根据您的问题 "${document.getElementById('question').value || '未提供具体问题'}"，这张牌表明：</p>
+                <p>针对您的问题"${document.getElementById('question').value || '未填写具体问题'}",本牌暗示：</p>
                 <p>
                     ${position === '正位' 
-                        ? `${card.name}的出现表明您面临新的机会和可能性。这个时刻可能是开始新项目或探索新方向的理想时机。信任您的能力和直觉。` 
-                        : `${card.name}逆位提示您可能需要重新审视自己的方向或决定。这可能是一个反思和内省的时期，而非立即行动的时机。`}
+                        ? `${card.name}的出现代表新的机会和可能性，现在是开始新项目或探索新方向的理想时机。相信自己的能力和直觉。` 
+                        : `逆位的${card.name}提示您需要重新思考方向或决策，这可能是反思和内省的时期，而不是立即行动。`}
                 </p>
             </div>
         `;
