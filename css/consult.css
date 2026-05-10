@@ -1,0 +1,164 @@
+/* 塔罗咨询一对一（本地静态页） */
+.consult-main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.consult-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.consult-title {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+
+.consult-lead {
+  color: #555;
+  line-height: 1.6;
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.consult-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 640px) {
+  .consult-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.consult-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+.consult-card h2 {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.35rem;
+}
+
+.consult-card .hint {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.consult-qr-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.consult-qr-link .tap {
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.consult-qr-wrap {
+  display: inline-block;
+  padding: 0.75rem;
+  background: #fafafa;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.consult-qr-wrap img {
+  display: block;
+  width: min(220px, 70vw);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.consult-qr-link:hover .consult-qr-wrap {
+  box-shadow: 0 6px 20px rgba(106, 76, 147, 0.2);
+}
+
+.consult-note {
+  margin-top: 2rem;
+  padding: 1rem;
+  font-size: 0.88rem;
+  color: #666;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
+}
+
+/* 扫码全屏页 */
+.scan-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem 2rem;
+  background: linear-gradient(180deg, #1a1025 0%, #2d1b3d 50%, #1a1025 100%);
+}
+
+.scan-back {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  color: #e1bee7;
+  font-size: 0.95rem;
+}
+
+.scan-back:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.scan-title {
+  color: #fff;
+  font-size: 1.45rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.scan-sub {
+  color: #ce93d8;
+  font-size: 0.92rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  max-width: 22rem;
+  line-height: 1.5;
+}
+
+.scan-panel {
+  background: #fff;
+  padding: clamp(1rem, 4vw, 2rem);
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.scan-panel img {
+  display: block;
+  width: min(78vmin, 360px);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.scan-tip {
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: #9575cd;
+  text-align: center;
+  max-width: 20rem;
+  line-height: 1.45;
+}
